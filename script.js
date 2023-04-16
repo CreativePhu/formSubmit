@@ -77,6 +77,13 @@ function Validator(mainForm){
             inputselect.onblur = function(){
                 regex(allRules[element.input], inputselect)
             }
+            
+            inputselect.oninput = function(){
+                var parentelement = getParent(inputselect)
+                var messageError = parentelement.querySelector('.form-message')
+                parentelement.classList.remove('invalid');
+                messageError.innerText = '';
+            }
         });
     }
 }
